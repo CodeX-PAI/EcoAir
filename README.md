@@ -1,20 +1,21 @@
 # 🌱 EcoAir — Air Quality & Environmental Analytics Dashboard
 
-An environmental data analytics project that collects, validates, analyzes, and visualizes air pollution data from multiple sources. EcoAir combines air quality measurements, multi-station comparisons, statistical analysis, and interactive visualizations to help explore pollution patterns and environmental conditions.
+An environmental data analytics project that collects, validates, analyzes, and visualizes air quality data from multiple sources. EcoAir combines multi-station measurements, pollutant analysis, statistical exploration, and interactive visualizations to help investigate air pollution patterns and environmental conditions.
 
-Built as a **Programming for AI — ETL + EDA Pipeline Project**.
+**Course:** Programming for AI  
+**Project:** ETL + EDA Pipeline  
+**Theme:** Air Quality & Public Health Tracker (Eco-Tech)  
+**Focus:** Sensor Data Validation & Geospatial Analysis
 
 ---
 
 ## 📌 Project Overview
 
-Air pollution is a significant environmental and public health concern. Monitoring pollutants such as PM2.5, PM10, ozone, nitrogen dioxide, and sulfur dioxide helps understand environmental conditions and identify pollution patterns.
+Air pollution is a major environmental and public health concern. Monitoring pollutants such as PM2.5, PM10, ozone, nitrogen dioxide, and sulphur dioxide helps us understand environmental conditions and identify pollution patterns.
 
-EcoAir provides a data-driven approach to air quality analysis by integrating datasets from OpenAQ and Open-Meteo. The project applies data extraction, cleaning, validation, storage, exploratory data analysis (EDA), and interactive visualization through a Streamlit dashboard.
+EcoAir integrates datasets from **OpenAQ** and **Open-Meteo** and applies an ETL workflow involving data extraction, transformation, validation, storage, and exploratory data analysis.
 
-The dashboard allows users to explore pollution trends, compare monitoring stations, examine statistical summaries, and investigate environmental data interactively.
-
----
+The project also provides an interactive Streamlit dashboard where users can explore pollution trends, compare monitoring stations, examine statistical summaries, and investigate environmental measurements.
 
 ## 🎯 Project Objectives
 
@@ -23,21 +24,20 @@ The dashboard allows users to explore pollution trends, compare monitoring stati
 - Validate data quality using **Pydantic**.
 - Process and analyze datasets using **Pandas**.
 - Store structured air quality measurements in an SQLite database.
-- Perform exploratory data analysis (EDA) to identify trends, distributions, missing values, and relationships between environmental variables.
+- Perform exploratory data analysis (EDA).
+- Identify trends, distributions, missing values, and relationships between environmental variables.
 - Compare air quality measurements across monitoring stations.
 - Build an interactive dashboard using Streamlit and Plotly.
-
----
 
 ## 📡 Data Sources
 
 ### 1. OpenAQ
 
-[OpenAQ](https://openaq.org/) provides air quality data collected from monitoring stations.
+[OpenAQ](https://openaq.org/) provides air quality measurements collected from monitoring stations.
 
-EcoAir uses OpenAQ data for multi-station air quality analysis.
+EcoAir uses OpenAQ data for multi-station environmental analysis.
 
-**Parameters included in the collected dataset:**
+**Parameters included:**
 
 - PM1
 - PM2.5
@@ -45,7 +45,7 @@ EcoAir uses OpenAQ data for multi-station air quality analysis.
 - Relative Humidity
 - UM003
 
-**Monitoring stations included:**
+**Monitoring stations:**
 
 - ARC
 - IEEE – Punjab University
@@ -67,29 +67,25 @@ EcoAir uses this dataset for pollutant analysis and environmental trend explorat
 - Ozone (O₃)
 - Nitrogen Dioxide (NO₂)
 - Sulphur Dioxide (SO₂)
-- Carbon Dioxide (CO₂)
+- Carbon Monoxide (CO)
 
-The Open-Meteo dataset contains **336 records** and 11 columns, including timestamps, pollutant measurements, geographic coordinates, and data source information.
-
----
+The Open-Meteo dataset contains **336 records and 11 columns**, including timestamps, pollutant measurements, geographic coordinates, and data source information.
 
 ## ⚙️ ETL Pipeline
 
-EcoAir implements an Extract, Transform, and Load (ETL) workflow to process environmental data.
+EcoAir implements an Extract, Transform, and Load (ETL) workflow.
 
 ### 1. Extract
 
-Data is collected from API sources.
-
 - Retrieve air quality measurements from OpenAQ.
-- Retrieve pollutant data from Open-Meteo.
-- Store the extracted data in raw CSV files for further processing.
+- Retrieve atmospheric and pollutant data from Open-Meteo.
+- Store extracted data in raw CSV files.
 
-### 2. Transform & Validate
+### 2. Transform and Validate
 
-The collected data is processed using Pandas and validated using Pydantic.
+Pandas and Pydantic are used to process and validate the collected data.
 
-The transformation and validation process includes:
+The process includes:
 
 - Structuring raw API responses.
 - Checking data types and required fields.
@@ -100,24 +96,19 @@ The transformation and validation process includes:
 
 ### 3. Load
 
-Validated OpenAQ data is stored in an SQLite database.
+Validated OpenAQ measurements are stored in an SQLite database.
 
-- Database: `air_quality.db`
-- Table: `measurements`
-
-The database currently contains **940 validated records**.
+- **Database:** `air_quality.db`
+- **Table:** `measurements`
+- **Validated records:** 940
 
 Cleaned datasets are also exported to CSV files for analysis and reuse.
-
----
 
 ## 🧹 Data Validation
 
 EcoAir uses **Pydantic** to validate collected air quality records.
 
-Validation helps ensure that data conforms to the expected structure and types before it is used for analysis.
-
-The validation pipeline checks data records and separates valid data from invalid records where applicable.
+The validation pipeline checks the structure and expected data types of measurement records and separates valid records from invalid ones.
 
 ### OpenAQ validation results
 
@@ -126,14 +117,11 @@ The validation pipeline checks data records and separates valid data from invali
 | Total records processed | 940 |
 | Valid records | 940 |
 | Invalid records | 0 |
-| Duplicate records | 0 |
 | Validation success | 100% |
 
-The validated records are exported into a cleaned CSV dataset and loaded into SQLite.
+The validated records are exported to a cleaned CSV dataset and loaded into SQLite.
 
 Data validation is important because environmental datasets may contain missing values, inconsistent formats, unexpected readings, or invalid measurements that can affect analytical results.
-
----
 
 ## 📊 Exploratory Data Analysis (EDA)
 
@@ -141,29 +129,25 @@ EcoAir performs structured exploratory data analysis using Pandas and visualizat
 
 ### OpenAQ Analysis
 
-The multi-station dataset is used to investigate:
-
 - Air quality variations across monitoring stations.
 - PM2.5 measurement distributions.
 - Differences in pollution levels between locations.
 - Pollution trends over time.
 - Station-level descriptive statistics.
-- Comparison of environmental measurements across stations.
+- Comparisons of available environmental measurements.
 
 ### Open-Meteo Analysis
-
-The Open-Meteo dataset is used to explore:
 
 - Pollutant distributions.
 - PM2.5 trends.
 - PM10 trends.
 - Missing data patterns.
 - Correlations between pollutant measurements.
-- Relationships between different atmospheric pollutants.
+- Relationships between atmospheric pollutants.
 
 ### Statistical Analysis
 
-The project calculates descriptive statistics such as:
+The project calculates descriptive statistics, including:
 
 - Mean
 - Median
@@ -184,8 +168,6 @@ The project calculates descriptive statistics such as:
 
 These statistics provide a comparison of PM2.5 measurements across the selected monitoring stations within the collected dataset.
 
----
-
 ## 📈 Dashboard Features
 
 EcoAir provides an interactive dashboard built using **Streamlit** and **Plotly**.
@@ -193,42 +175,35 @@ EcoAir provides an interactive dashboard built using **Streamlit** and **Plotly*
 The dashboard is organized into five main sections:
 
 ### 1. Overview
-
 - Project overview.
 - Environmental data summary.
 - Key statistical metrics.
 - Main dashboard visualizations.
 
 ### 2. OpenAQ Trends
-
 - Multi-station air quality analysis.
 - PM2.5 trends.
 - Station-level exploration.
 - Pollution data visualizations.
 
 ### 3. Open-Meteo Analysis
-
 - Pollutant data exploration.
 - PM2.5 and PM10 trends.
 - Atmospheric pollutant comparisons.
 - Statistical analysis.
 
 ### 4. Compare Stations
-
-- Compare air quality measurements across monitoring stations.
+- Compare measurements across monitoring stations.
 - Explore differences in station-level pollution statistics.
 - Visual comparison of available measurements.
 
 ### 5. Data Explorer
-
 - Interactive data exploration.
 - Filter available measurements.
 - Inspect collected records.
-- Explore the underlying datasets.
+- Explore underlying datasets.
 
-Additional dashboard functionality includes interactive charts, filters, statistical summaries, and data exploration.
-
----
+Additional functionality includes interactive charts, filters, statistical summaries, and data exploration.
 
 ## 🛠️ Technologies Used
 
@@ -236,7 +211,6 @@ Additional dashboard functionality includes interactive charts, filters, statist
 |---|---|
 | Python | Core programming language |
 | Pandas | Data cleaning, transformation, and analysis |
-| NumPy | Numerical operations |
 | Pydantic | Data validation and schema enforcement |
 | SQLite | Structured data storage |
 | Streamlit | Interactive dashboard development |
@@ -244,80 +218,68 @@ Additional dashboard functionality includes interactive charts, filters, statist
 | Matplotlib | Exploratory data visualizations |
 | Requests | API data retrieval |
 | OpenAQ API | Multi-station air quality data |
-| Open-Meteo API | Atmospheric pollution data |
+| Open-Meteo API | Atmospheric and pollutant data |
 | Git & GitHub | Version control and project hosting |
-
----
 
 ## 📁 Project Structure
 
 ```text
-air-quality-tracker/
+EcoAir/
 │
 ├── app.py
-│
-├── extract.py
-├── extract_openmeteo.py
-│
-├── validate.py
-├── validate_multi_station.py
-│
 ├── database.py
-│
-├── analyze.py
+├── extract_openmeteo.py
+├── validate_multi_station.py
 ├── analyze_multi_station.py
 ├── analyze_openmeteo.py
 │
-├── discover_pollutants.py
-├── check_latest.py
+├── CSV datasets/
+│   ├── air_quality_multi_station_raw.csv
+│   ├── air_quality_multi_station_clean.csv
+│   ├── air_quality_openmeteo_raw.csv
+│   ├── openmeteo_descriptive_statistics.csv
+│   ├── openmeteo_missing_values.csv
+│   └── openmeteo_correlation_matrix.csv
 │
-├── air_quality_raw.csv
-├── air_quality_clean.csv
+├── EDA charts/
+│   ├── pm25_station_comparison.png
+│   ├── pm25_multi_station_trends.png
+│   ├── pm25_over_time.png
+│   ├── pm25_distribution.png
+│   ├── openmeteo_pm25_trend.png
+│   ├── openmeteo_pm10_trend.png
+│   └── openmeteo_correlation_heatmap.png
 │
-├── air_quality_multi_station_raw.csv
-├── air_quality_multi_station_clean.csv
-│
-├── air_quality_openmeteo_raw.csv
+├── submission_evidence/
+│   ├── dashboard_screenshot.png
+│   └── EcoAir Demo.webm
 │
 ├── air_quality.db
-│
-├── openmeteo_descriptive_statistics.csv
-├── openmeteo_missing_values.csv
-├── openmeteo_correlation_matrix.csv
-│
-├── pm25_station_comparison.png
-├── pm25_multi_station_trends.png
-├── openmeteo_pm25_trend.png
-├── openmeteo_pm10_trend.png
-├── openmeteo_correlation_heatmap.png
-│
 ├── requirements.txt
 ├── README.md
 └── .gitignore
 ```
 
-*Note: The exact files may vary depending on the latest generated datasets and analysis outputs.*
+*Note: Generated datasets and analysis outputs may vary depending on the latest data collection and analysis runs.*
 
----
-
-## 🚀 Installation & Setup
+## 🚀 Installation and Setup
 
 ### Prerequisites
 
 - Python installed
-- Git
+- Git installed
 - Internet connection for API data collection
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/EcoAir-Air-Quality-Tracker.git
+git clone https://github.com/CodeX-PAI/EcoAir.git
 ```
 
-### 2. Navigate to the project folder
+### 2. Navigate to the project directory
 
 ```bash
-cd EcoAir-Air-Quality-Tracker
+cd EcoAir
 ```
 
 ### 3. Create a virtual environment
@@ -352,41 +314,33 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-The dashboard will open locally in your browser.
-
----
+The dashboard will open in your local browser.
 
 ## 📦 Dependencies
 
 Project dependencies are listed in `requirements.txt`.
 
-The main libraries include:
+Main libraries include:
 
-```text
-pandas
-numpy
-pydantic
-requests
-streamlit
-plotly
-matplotlib
-```
-
----
+- requests
+- python-dotenv
+- pydantic
+- pandas
+- matplotlib
+- streamlit
+- plotly
 
 ## 📷 Dashboard Preview
 
-The dashboard provides interactive visualizations for air quality analysis, pollutant trends, monitoring station comparisons, and environmental data exploration.
+The following screenshot provides a preview of the EcoAir interactive dashboard.
 
-![EcoAir Dashboard](dashboard_screenshot.png)
-
----
+![EcoAir Dashboard](submission_evidence/dashboard_screenshot.png)
 
 ## 🎥 Project Demo
 
-A short demonstration video showcases the EcoAir dashboard and its main features, including visualizations, station comparisons, and interactive data exploration.
+Watch the project demonstration video to explore the EcoAir dashboard, including its visualizations, station comparisons, and interactive data exploration.
 
----
+[▶ Watch the EcoAir Dashboard Demo](submission_evidence/EcoAir%20Demo.webm)
 
 ## 🌍 Project Significance
 
@@ -396,16 +350,12 @@ By combining API-based data collection, validation, structured storage, statisti
 
 It also highlights the importance of data quality, exploratory analysis, and visualization in making environmental datasets more understandable.
 
----
-
 ## 👩‍💻 Academic Project
 
-**Course:** Programming for AI  
-**Project:** ETL + EDA Pipeline  
-**Project Theme:** Air Quality & Public Health Tracker (Eco-Tech)  
-**Focus:** Sensor Data Validation & Geospatial Analysis
-
----
+- **Course:** Programming for AI
+- **Project:** ETL + EDA Pipeline
+- **Project Theme:** Air Quality & Public Health Tracker (Eco-Tech)
+- **Focus:** Sensor Data Validation & Geospatial Analysis
 
 ## 📄 License
 
