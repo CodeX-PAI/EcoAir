@@ -1,0 +1,27 @@
+# Virtual environments
+.venv/
+venv/
+Scripts/
+Lib/
+Include/
+share/
+pyvenv.cfg
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Secrets
+.env
+.streamlit/secrets.toml
+
+# IDE
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

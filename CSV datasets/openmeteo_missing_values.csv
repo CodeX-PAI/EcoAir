@@ -1,0 +1,12 @@
+,Missing Values,Missing Percentage
+time,0,0.0
+pm10,42,12.5
+pm2_5,42,12.5
+ozone,42,12.5
+nitrogen_dioxide,42,12.5
+sulphur_dioxide,42,12.5
+carbon_dioxide,112,33.33
+latitude,0,0.0
+longitude,0,0.0
+source,0,0.0
+fetched_at_utc,0,0.0
